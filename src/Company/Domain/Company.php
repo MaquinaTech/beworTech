@@ -75,6 +75,11 @@ final class Company implements Arrayable
         return $this->status;
     }
 
+    public function setStatus(CompanyStatus $status): void
+    {
+        $this->status = $status;
+    }
+
     public function toArray()
     {
         return [
