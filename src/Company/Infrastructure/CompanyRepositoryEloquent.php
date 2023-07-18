@@ -16,6 +16,8 @@ class CompanyRepositoryEloquent implements CompanyRepositoryInterface
         ModelsCompany::Create([
             'id'     => $company->id(),
             'name'   => $company->name(),
+            'email'   => $company->email(),
+            'address' => $company->address(),
             'status' => $company->status(),
         ]);
     }

@@ -18,16 +18,16 @@ class CreateNewCompanyRouteTest extends TestCase
          */
         $faker = \Faker\Factory::create();
         $testCompany = [
-            'name'   => $faker->name,
-            'status' => 'inactive',
+            'name'    => $faker->name,
+            'email'   => $faker->email,
+            'address' => $faker->address,
+            'status'  => 'inactive',
         ];
 
         /**
          * Actions
          */
-        $response = $this->json('POST', '/api/company', [
-            'name' => $testCompany['name'],
-        ]);
+        $response = $this->json('POST', '/api/company', $testCompany);
 
         /**
          * Asserts
