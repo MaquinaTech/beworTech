@@ -21,4 +21,12 @@ interface CompanyRepositoryInterface
      * @return Company|null
      */
     public function activate(string $id): ?Company;
+
+    /**
+     * Get company list
+     *
+     * @return array|null
+     */
+    public function list(): ?array;
+
 }

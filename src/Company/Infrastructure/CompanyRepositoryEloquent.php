@@ -55,4 +55,39 @@ class CompanyRepositoryEloquent implements CompanyRepositoryInterface
             new CompanyStatus($model->status),
         );
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function list(): ?array
+    {
+        // Get the company list from the database
+        $list = ModelsCompany::all();
+
+        // If the list is empty, return null
+        if (empty($list)) {
+            return null;
+        }
+
+        // Create an array to store the companies
+        $companies = [];
+
+        // Iterate the list
+        foreach ($list as $model) {
+            // Create a new Company domain object
+            $company = new Company(
+                new CompanyId($model->id),
+                new CompanyName($model->name),
+                new CompanyEmail($model->email),
+                new CompanyAddress($model->address),
+                new CompanyStatus($model->status),
+            );
+
+            // Add the company to the array
+            $companies[] = $company;
+        }
+
+        // Return the company list
+        return $companies;
+    }
 }

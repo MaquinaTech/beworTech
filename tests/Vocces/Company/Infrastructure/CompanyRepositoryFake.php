@@ -49,4 +49,18 @@ class CompanyRepositoryFake implements CompanyRepositoryInterface
 
         return $company;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function list(): ?array
+    {
+        // If the company list is empty, return exception
+        if(empty($this->companies) || !is_array($this->companies)) {
+            throw new \Exception("Company list is empty.");
+        }
+
+        // Return the company list
+        return $this->companies;
+    }
 }
