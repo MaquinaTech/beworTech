@@ -27,7 +27,7 @@ final class UpdateCompanyStatusTest extends TestCase
             'name'   => $faker->name,
             'email'   => $faker->unique()->safeEmail(),
             'address' => $faker->address,
-            'status' => 'inactive',
+            'status' => CompanyStatus::disabled(),
         ];
         $fakeRepository = new CompanyRepositoryFake();
 
