@@ -22,54 +22,22 @@ final class ListCompanyTest extends TestCase
          * Preparing
          */
         $faker = \Faker\Factory::create();
-        $testCompany1 = [
-            'id'     => Str::uuid(),
-            'name'   => $faker->name,
-            'email'   => $faker->unique()->safeEmail(),
-            'address' => $faker->address,
-            'status' => CompanyStatus::disabled(),
-        ];
-        $testCompany2 = [
-            'id'     => Str::uuid(),
-            'name'   => $faker->name,
-            'email'   => $faker->unique()->safeEmail(),
-            'address' => $faker->address,
-            'status' => CompanyStatus::disabled(),
-        ];
-        $testCompany3 = [
-            'id'     => Str::uuid(),
-            'name'   => $faker->name,
-            'email'   => $faker->unique()->safeEmail(),
-            'address' => $faker->address,
-            'status' => CompanyStatus::disabled(),
-        ];
-
         $fakeRepository = new CompanyRepositoryFake();
+
+        $creator = new CompanyCreator($fakeRepository);
+        for($i = 0; $i < 3; $i++){
+            $creator->handle(
+                Str::uuid(),
+                $faker->name,
+                $faker->unique()->safeEmail(),
+                $faker->address,
+            );
+            
+        }
 
         /**
          * Actions
          */
-        $creator = new CompanyCreator($fakeRepository);
-        $company1 = $creator->handle(
-            $testCompany1['id'],
-            $testCompany1['name'],
-            $testCompany1['email'],
-            $testCompany1['address'],
-        );
-        $company2 = $creator->handle(
-            $testCompany2['id'],
-            $testCompany2['name'],
-            $testCompany2['email'],
-            $testCompany2['address'],
-        );
-        $company3 = $creator->handle(
-            $testCompany3['id'],
-            $testCompany3['name'],
-            $testCompany3['email'],
-            $testCompany3['address'],
-        );
-
-        // Listamos las compañías
         $list = new CompanyList($fakeRepository);
         $companies = $list->handle();
 
