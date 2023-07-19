@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Create new company
 Route::post('/company', [App\Http\Controllers\Api\Company\PostCreateCompanyController::class, '__invoke']);
+
+// Activate a company
 Route::post('/company/activate', [App\Http\Controllers\Api\Company\PostActivateCompanyController::class, '__invoke']);
+
+// List companies
+Route::get('/company', [App\Http\Controllers\Api\Company\PostListCompanyController::class, '__invoke']);
