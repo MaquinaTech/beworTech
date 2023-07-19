@@ -14,11 +14,11 @@ interface CompanyRepositoryInterface
     public function create(Company $company): void;
 
     /**
-     * Update a company instance
+     * Activate a company
      *
-     * @param Company $company
+     * @param string $id
      *
-     * @return void
+     * @return Company|null
      */
-    public function activate(Company $company): void;
+    public function activate(string $id): ?Company;
 }

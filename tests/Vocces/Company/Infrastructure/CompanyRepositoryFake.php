@@ -9,8 +9,11 @@ use Vocces\Company\Domain\CompanyRepositoryInterface;
 
 class CompanyRepositoryFake implements CompanyRepositoryInterface
 {
+    // Properties to check if the methods are called
     private bool $callMethodCreate = false;
     private bool $callMethodActivate = false;
+
+    // Array to store the companies
     private array $companies = [];
 
     /**
@@ -18,24 +21,32 @@ class CompanyRepositoryFake implements CompanyRepositoryInterface
      */
     public function create(Company $company): void
     {
+        // Add the company to the array
         $this->companies[(string) $company->id()] = $company;
+
+        // Set flag to true
         $this->callMethodCreate = true;
     }
 
     /**
      * @inheritdoc
      */
-    public function activate(Company $company): void
+    public function activate(string $id): ?Company
     {
-        $company->setStatus(CompanyStatus::enabled());
-        $this->callMethodActivate = true;
-    }
+        // Find the company in array
+        $company = $this->companies[$id] ?? null;
 
-    /**
-     * @inheritDoc
-     */
-    public function findById(string $id): ?Company
-    {
-        return $this->companies[$id] ?? null;
+        // If the company is not found, return exception
+        if (!isset($this->companies[(string) $company->id()])) {
+            throw new \Exception("Company with ID {$company->id()} not found.");
+        }
+
+        // Activate the company
+        $company->setStatus(CompanyStatus::enabled());
+
+        // Set flag to true
+        $this->callMethodActivate = true;
+
+        return $company;
     }
 }

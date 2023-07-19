@@ -26,18 +26,20 @@ class CompanyStatusActivate implements ServiceInterface
 
     /**
      * Update company status from inactive to active
+     * 
+     * @param string $id
+     * @return Company|null
      */
     public function handle($id)
     {
-        // Get company
-        $company = $this->repository->findById($id);
-        if (!$company) {
-            throw new \Exception("Company not found");
-        }
-        // Activate company
-        $company->setStatus(CompanyStatus::enabled());
-        $this->repository->activate($company);
+        // Activate Company
+        $company = $this->repository->activate($id);
 
+        if(!isset($company)) {
+            return null;
+        }
+
+        // Return the company
         return $company;
     }
 }
