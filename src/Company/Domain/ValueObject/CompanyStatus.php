@@ -36,6 +36,7 @@ final class CompanyStatus implements Arrayable
      * Validate value
      * @param int $value
      * @return int
+     * @throws InvalidCompanyStatusException
      */
     private function validate(int $value): int
     {
@@ -85,6 +86,7 @@ final class CompanyStatus implements Arrayable
      * Create new instance from name
      * @param string $name
      * @return string
+     * @throws InvalidCompanyStatusException
      */
     public static function fromName(string $name): CompanyStatus
     {

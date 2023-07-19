@@ -21,6 +21,9 @@ class Uuid
 
     /**
      * Validate uuid
+     * @param string $uuid
+     * @return string
+     * @throws Exception
      */
     private function validate(string $uuid): string
     {

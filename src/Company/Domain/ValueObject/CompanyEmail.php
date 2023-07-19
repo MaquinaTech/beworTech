@@ -24,6 +24,7 @@ final class CompanyEmail
      * Validate the email
      * @param string $email
      * @return void
+     * @throws InvalidCompanyEmailException
      */
     private function validate(string $email): void
     {
