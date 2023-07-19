@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\Company;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Vocces\Company\Application\CompanyUpdater;
 use Vocces\Company\Application\CompanyStatusActivate;
 use App\Http\Requests\Company\ActivateCompanyRequest;
 
