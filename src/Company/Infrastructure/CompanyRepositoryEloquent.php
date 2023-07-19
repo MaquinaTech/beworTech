@@ -80,7 +80,7 @@ class CompanyRepositoryEloquent implements CompanyRepositoryInterface
                 new CompanyName($model->name),
                 new CompanyEmail($model->email),
                 new CompanyAddress($model->address),
-                new CompanyStatus($model->status),
+                new CompanyStatus($model->status == 'active' ? 1 : 2),
             );
 
             // Add the company to the array

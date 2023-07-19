@@ -18,14 +18,13 @@ class ActivateCompanyRouteTest extends TestCase
         // Arrange: Prepare the test data
         $faker = \Faker\Factory::create();
         $testCompany = [
-            'id'      => Str::uuid(),
             'name'    => $faker->name,
             'email'   => $faker->email,
             'address' => $faker->address,
             'status'  => CompanyStatus::disabled()->name(),
         ];
 
-        // Act: Create a new company and activate it
+        // Act: Create a new company
         $response = $this->json('POST', '/api/company', $testCompany);
 
         // Update the id of the testCompany with the id that the response returns
