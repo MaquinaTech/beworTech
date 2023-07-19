@@ -20,6 +20,8 @@ class CompanyCreator implements ServiceInterface
 
     /**
      * Create new instance
+     * @param CompanyRepositoryInterface $repository
+     * @return void
      */
     public function __construct(CompanyRepositoryInterface $repository)
     {
@@ -28,6 +30,11 @@ class CompanyCreator implements ServiceInterface
 
     /**
      * Create a new company
+     * @param string $id
+     * @param string $name
+     * @param string $email
+     * @param string $address
+     * @return Company
      */
     public function handle($id, $name, $email, $address)
     {

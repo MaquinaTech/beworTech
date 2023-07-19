@@ -36,6 +36,15 @@ final class Company implements Arrayable
      */
     private CompanyStatus $status;
 
+    /**
+     * Create new instance
+     * @param CompanyId $id
+     * @param CompanyName $name
+     * @param CompanyEmail $email
+     * @param CompanyAddress $address
+     * @param CompanyStatus $status
+     * @return void
+     */
     public function __construct(
         CompanyId $id,
         CompanyName $name,
@@ -50,36 +59,65 @@ final class Company implements Arrayable
         $this->status = $status;
     }
 
+    /**
+     * Get the company id
+     * @return CompanyId
+     */
     public function id(): CompanyId
     {
         return $this->id;
     }
 
+    /**
+     * Get the company name
+     * @return CompanyName
+     */
     public function name(): CompanyName
     {
         return $this->name;
     }
 
+    /**
+     * Get the company email
+     * @return CompanyEmail
+     */
     public function email(): CompanyEmail
     {
         return $this->email;
     }
 
+    /**
+     * Get the company address
+     * @return CompanyAddress
+     */
     public function address(): CompanyAddress
     {
         return $this->address;
     }
 
+    /**
+     * Get the company status
+     * @return CompanyStatus
+     */
     public function status(): CompanyStatus
     {
         return $this->status;
     }
 
+    /**
+     * Set the company status
+     * @param CompanyStatus $status
+     * @return void
+     */
     public function setStatus(CompanyStatus $status): void
     {
         $this->status = $status;
     }
 
+    /**
+     * Get the company as array
+     * @return array
+     */
     public function toArray()
     {
         return [

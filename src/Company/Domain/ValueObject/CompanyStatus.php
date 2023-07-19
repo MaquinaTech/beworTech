@@ -7,6 +7,7 @@ use Vocces\Company\Domain\Exception\InvalidCompanyStatusException;
 
 final class CompanyStatus implements Arrayable
 {
+    // Properties
     public const ENABLED = 1;
     public const DISABLED = 2;
 
@@ -23,6 +24,8 @@ final class CompanyStatus implements Arrayable
 
     /**
      * Create new instance
+     * @param int $status
+     * @return void
      */
     public function __construct(int $status)
     {
@@ -31,6 +34,8 @@ final class CompanyStatus implements Arrayable
 
     /**
      * Validate value
+     * @param int $value
+     * @return int
      */
     private function validate(int $value): int
     {
@@ -78,6 +83,7 @@ final class CompanyStatus implements Arrayable
 
     /**
      * Create new instance from name
+     * @param string $name
      * @return string
      */
     public static function fromName(string $name): CompanyStatus
@@ -93,6 +99,7 @@ final class CompanyStatus implements Arrayable
 
     /**
      * Create new instance from id or name
+     * @param int|string $value
      * @return string
      */
     public static function create($value): CompanyStatus
@@ -104,6 +111,10 @@ final class CompanyStatus implements Arrayable
         return self::fromName((string) $value);
     }
 
+    /**
+     * Return array
+     * @return array
+     */
     public function toArray()
     {
         return [

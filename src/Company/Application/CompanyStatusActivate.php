@@ -18,6 +18,8 @@ class CompanyStatusActivate implements ServiceInterface
 
     /**
      * Create new instance
+     * @param CompanyRepositoryInterface $repository
+     * @return void
      */
     public function __construct(CompanyRepositoryInterface $repository)
     {
