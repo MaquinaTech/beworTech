@@ -9,14 +9,14 @@ use Vocces\Company\Application\CompanyCreator;
 use Vocces\Company\Application\CompanyStatusActivate;
 use Tests\Vocces\Company\Infrastructure\CompanyRepositoryFake;
 
-final class UpdateCompanyStatusTest extends TestCase
+final class ActivateCompanyStatusTest extends TestCase
 {
     /**
      * @group application
      * @group company
      * @test
      */
-    public function updateCompanyStatus()
+    public function activateCompanyStatus()
     {
         /**
          * Preparing
