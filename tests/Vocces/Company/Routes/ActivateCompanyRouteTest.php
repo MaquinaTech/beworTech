@@ -13,7 +13,7 @@ class ActivateCompanyRouteTest extends TestCase
      * @group access-interface
      * @test
      */
-    public function it_can_activate_a_company()
+    public function postActivateCompanyRoute()
     {
         // Arrange: Prepare the test data
         $faker = \Faker\Factory::create();
