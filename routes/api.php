@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/company', [App\Http\Controllers\Api\Company\PostCreateCompanyController::class, '__invoke']);
+Route::post('/company/activate', [App\Http\Controllers\Api\Company\PostActivateCompanyController::class, '__invoke']);
