@@ -7,8 +7,8 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     private array $bindingInterfaces = [
-        \Vocces\Company\Domain\CompanyRepositoryInterface::class =>
-            \Vocces\Company\Infrastructure\CompanyRepositoryEloquent::class,
+        \Vocces\Company\Domain\CompanyRepositoryInterface::class => \Vocces\Company\Infrastructure\CompanyRepositoryEloquent::class,
+        \Vocces\Employee\Domain\EmployeeRepositoryInterface::class => \Vocces\Employee\Infrastructure\EmployeeRepositoryEloquent::class,
     ];
 
     /**
