@@ -24,4 +24,31 @@ class Company extends Model
         'address',
         'status'
     ];
+
+    /**
+     * Get the employees for the company.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function employees()
+    {
+        return $this->hasMany(Employee::class);
+    }
+
+    /**
+     * Get the active employees for the company.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function employeesActive()
+    {
+        return $this->hasMany(Employee::class)->where('status', 'active');
+    }
+
+    /**
+     * Get the deactive employees for the company.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function employeesInactive()
+    {
+        return $this->hasMany(Employee::class)->where('status', 'inactive');
+    }
 }
