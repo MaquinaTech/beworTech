@@ -1,3 +1,9 @@
+## IMPORTANTE
+Este proyecto dispone de una rama adicional llamada "Employee", donde se implementa el ejercicio opcional que sugiere añadir una nueva entidad de dominio.
+
+#### DOCUMENTACIÓN
+https://docs.google.com/document/d/1-e_aLZzNSFUCaJeaCFWBZRqZb-rswCAysgrNuP_YDAc/edit?usp=sharing
+
 #### INSTALACIÓN
 
  - Clonar el repositorio.
