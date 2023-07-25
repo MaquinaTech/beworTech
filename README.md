@@ -1,3 +1,6 @@
+## IMPORTANTE
+Este proyecto dispone de una rama adicional llamada "Employee", donde se implementa el ejercicio opcional que sugiere añadir una nueva entidad de dominio.
+
 #### INSTALACIÓN
 
  - Clonar el repositorio.
@@ -15,7 +18,7 @@
 
 ----
 
-#### EJERCICIOS
+#### EJERCICIOS REALIZADOS
 
  - Agregar las propiedades `email` y `address` a las compañías.
  - Crear un nuevo caso de uso para actualizar el estado de una compañía de `inactive` a `active`.
@@ -24,11 +27,3 @@
  - Crear un nuevo endpoint de API que liste las compañías en base al caso de uso del punto anterior.
  - Los test deben pasar después de realizar los cambios.
  - Opcional: Implementa cualquier otra entidad de dominio.
-
-
-#### ENTREGAR PRUEBA
-
- - Hacer fork del repositorio.
- - Antes de realizar ningún cambio, suba el código a un repositorio público de su propiedad indicando como comentario del commit "Initial commit".
- - Realizar los ejercicios y subir los cambios a su repositorio.
- - Cuando la finalice, envie un email a pbodelon@vocces.com indicando el link de su repositorio.
