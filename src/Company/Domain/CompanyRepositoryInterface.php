@@ -19,6 +19,7 @@ interface CompanyRepositoryInterface
      * @param string $id
      *
      * @return Company|null
+     * @throws \Exception
      */
     public function activate(string $id): ?Company;
 
@@ -26,6 +27,7 @@ interface CompanyRepositoryInterface
      * Get company list
      *
      * @return array|null
+     * @throws \Exception
      */
     public function list(): ?array;
 

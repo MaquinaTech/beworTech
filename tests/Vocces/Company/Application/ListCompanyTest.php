@@ -41,6 +41,9 @@ final class ListCompanyTest extends TestCase
         $list = new CompanyList($fakeRepository);
         $companies = $list->handle();
 
+        // Create an empty list
+        $empty_list = new CompanyList(new CompanyRepositoryFake());
+
 
         /**
          * Assert
@@ -55,6 +58,10 @@ final class ListCompanyTest extends TestCase
         foreach($companies as $company) {
             $this->assertInstanceOf(Company::class, $company);
         }
+
+        // Expect an exception when the company is not found
+        $this->expectException(\Exception::class);
+        $companies_exception = $empty_list->handle();
         
     }
 }

@@ -30,15 +30,16 @@ class CompanyList implements ServiceInterface
      * Get company list
      * 
      * @return array|null
+     * @throws \Exception
      */
     public function handle() : ?array
     {
         // Get the company list
         $list = $this->repository->list();
 
-        // If the list is empty, return null
+        // If the list is empty, throw an exception
         if(empty($list)) {
-            return null;
+            throw new \Exception('Company list is empty');
         }
 
         // Return the company list

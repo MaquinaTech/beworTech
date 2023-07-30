@@ -46,10 +46,19 @@ final class ActivateCompanyStatusTest extends TestCase
         $activate = new CompanyStatusActivate($fakeRepository);
         $activatedCompany = $activate->handle($company->id());
 
+        $activate_exception = new CompanyStatusActivate(new CompanyRepositoryFake());
+        
+
         /**
          * Assert
          */
         $this->assertInstanceOf(Company::class, $activatedCompany);
         $this->assertEquals(CompanyStatus::enabled(), $activatedCompany->status());
+
+        // Expect an exception when the company is not found
+        $this->expectException(\Exception::class);
+        $activatedCompany_exception = $activate_exception->handle($company->id());
+        
+
     }
 }

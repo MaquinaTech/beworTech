@@ -37,9 +37,9 @@ class CompanyStatusActivate implements ServiceInterface
         // Activate Company
         $company = $this->repository->activate($id);
 
-        // If the company is null, return null
+        // If the company is null, throw an exception
         if(!isset($company)) {
-            return null;
+            throw new \Exception('Company not found');
         }
 
         // Return the company

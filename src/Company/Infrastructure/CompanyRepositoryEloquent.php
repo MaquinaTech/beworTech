@@ -36,8 +36,9 @@ class CompanyRepositoryEloquent implements CompanyRepositoryInterface
         // Find the company in the database
         $model = ModelsCompany::find($id);
 
+        // If the company is not found, throw an exception
         if (!isset($model)) {
-            return null;
+            throw new \Exception('Company not found');
         }
 
         // Set the status to enabled
@@ -64,9 +65,9 @@ class CompanyRepositoryEloquent implements CompanyRepositoryInterface
         // Get the company list from the database
         $list = ModelsCompany::all();
 
-        // If the list is empty, return null
+        // If the list is empty, throw an exception
         if (empty($list)) {
-            return null;
+            throw new \Exception('No companies found');
         }
 
         // Create an array to store the companies

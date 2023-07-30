@@ -36,9 +36,10 @@ class CompanyRepositoryFake implements CompanyRepositoryInterface
         // Find the company in array
         $company = $this->companies[$id] ?? null;
 
+        
         // If the company is not found, return exception
-        if (!isset($this->companies[(string) $company->id()])) {
-            throw new \Exception("Company with ID {$company->id()} not found.");
+        if (!isset($this->companies[(string) $id])) {
+            throw new \Exception("Company with ID {$id} not found.");
         }
 
         // Activate the company
