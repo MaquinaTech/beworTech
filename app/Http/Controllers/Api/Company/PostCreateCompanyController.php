@@ -17,12 +17,21 @@ class PostCreateCompanyController extends Controller
      */
     public function __invoke(CreateCompanyRequest $request, CompanyCreator $service)
     {
+        // Start transaction
         DB::beginTransaction();
+
         try {
+            // Create company
             $company = $service->handle(Str::uuid(), $request->name, $request->email, $request->address);
+
+            // Commit transaction
             DB::commit();
+
+            // Return the company
             return response($company, 201);
+
         } catch (\Throwable $error) {
+            // Rollback transaction
             DB::rollback();
             throw $error;
         }

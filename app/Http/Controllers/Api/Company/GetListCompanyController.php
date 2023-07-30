@@ -9,7 +9,7 @@ use Vocces\Company\Application\CompanyList;
 use App\Http\Requests\Company\ListCompanyRequest;
 
 
-class PostListCompanyController extends Controller
+class GetListCompanyController extends Controller
 {
     /**
      * Activate a company

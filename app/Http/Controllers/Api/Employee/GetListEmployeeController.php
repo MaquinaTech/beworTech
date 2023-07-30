@@ -9,7 +9,7 @@ use Vocces\Employee\Application\EmployeeList;
 use App\Http\Requests\Employee\ListEmployeeRequest;
 
 
-class PostListEmployeeController extends Controller
+class GetListEmployeeController extends Controller
 {
     /**
      * Activate a employee
