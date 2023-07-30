@@ -8,6 +8,7 @@ use Vocces\Company\Domain\ValueObject\CompanyEmail;
 use Vocces\Company\Domain\ValueObject\CompanyAddress;
 use Vocces\Company\Domain\ValueObject\CompanyStatus;
 use Vocces\Shared\Infrastructure\Interfaces\Arrayable;
+use Vocces\Employee\Domain\Employee;
 
 final class Company implements Arrayable
 {
@@ -37,12 +38,19 @@ final class Company implements Arrayable
     private CompanyStatus $status;
 
     /**
+     * @var \Vocces\Employee\Domain\Employee[]
+     */
+    private array $employees = [];
+
+
+    /**
      * Create new instance
      * @param CompanyId $id
      * @param CompanyName $name
      * @param CompanyEmail $email
      * @param CompanyAddress $address
      * @param CompanyStatus $status
+     * @param Employee[] $employees
      * @return void
      */
     public function __construct(
@@ -57,6 +65,7 @@ final class Company implements Arrayable
         $this->email = $email;
         $this->address = $address;
         $this->status = $status;
+        $this->employees = [];
     }
 
     /**
@@ -113,6 +122,26 @@ final class Company implements Arrayable
     {
         $this->status = $status;
     }
+
+    /**
+     * Get the company employees
+     * @return Employee[]
+     */
+    public function employees(): array
+    {
+        return $this->employees;
+    }
+
+    /**
+     * Add a new employee to the company
+     * @param Employee $employee
+     * @return void
+     */
+    public function addEmployee(Employee $employee): void
+    {
+        $this->employees[] = $employee;
+    }
+
 
     /**
      * Get the company as array
